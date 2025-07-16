@@ -1,0 +1,1 @@
+# 🎥 VidSpark – A Full-Stack Video Hosting and Sharing Platform with Auth, Upload, and Analytics
