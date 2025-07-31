@@ -31,7 +31,6 @@ const userSchema = new Schema(
     },
     coverImage: {
       type: String, // Cloudinary URL
-      required: true,
     },
     watchHistory: [
       {
@@ -47,9 +46,8 @@ const userSchema = new Schema(
       type: String,
     },
   },
-  {
-    timeseries: true,
-  }
+  { timestamps: true }
+
 );
 
 userSchema.pre("save", async function (next) {
@@ -58,7 +56,7 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
-userSchema.method.isPasswordCorrect = async function (password) {
+userSchema.methods.isPasswordCorrect = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
 
